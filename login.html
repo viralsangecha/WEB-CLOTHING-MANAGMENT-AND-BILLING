@@ -1,0 +1,224 @@
+<html>
+<head>
+    <title>Admin Login</title>
+    <style>
+		body 
+		{
+			font-family: 'Arial', sans-serif;
+			background: url('tb.png') no-repeat center fixed;
+			background-size: cover;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+			margin: 0;
+			
+		}
+
+		.login-container
+		{
+			background-color: rgba(0, 0, 0, 0.6);
+						
+			padding: 40px;
+			margin-bottom:40px;
+			border-radius: 16px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+			text-align: center;
+			width: 300px;
+		}
+
+		h2 
+		{
+			color: white;
+			font-size: 24;
+			margin-bottom: 40px;
+		}
+
+		label
+		{
+			display: block;
+			margin-bottom: 5px;
+			color:white;
+			font-size:19;
+		}
+		a
+		{
+			text-decoration:none;
+			color:white;
+		}
+
+		input 
+		{
+			width: 100%;
+			padding: 10px;
+			margin: 10px 0;
+			border: none;
+			border-radius: 4px;
+			box-sizing: border-box;
+		}
+
+		button
+		{
+			width: 50%;
+			padding: 10px;
+			border: none;
+			border-radius: 4px;
+			background:rgb(25, 10, 96);
+			color: white;
+			font-size: 16px;
+			cursor: pointer;
+			margin-top: 10px;
+			transition:0.5s;
+			border-radius:40px;
+		}
+		
+		button:hover 
+		{
+			box-shadow: 0 0 10px rgb(0,0,0);
+			background:rgb(46, 18, 174);
+			width:100%;
+			transition:0.5s;
+		}
+		
+		.modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+			width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+        }
+
+		.modal-content 
+		{
+			background: url('tb.png') no-repeat center fixed;
+			border-radius:15px;
+            background-color:#fefefe;
+            margin: 15% auto; /* 15% from the top and centered */
+            padding: 35px;
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+            max-width: 400px; /* Maximum width for the modal */
+        }
+        .modal-content1 
+		{
+			background-color:white;
+			border-radius:20px;
+            background-color:#fefefe;
+            margin: 15% auto; /* 15% from the top and centered */
+            padding: 2px;
+            border: 1px solid #888;
+            width: 70%; /* Could be more or less, depending on screen size */
+            max-width: 400px; /* Maximum width for the modal */
+        }
+
+        
+        .close 
+		{
+            color: Black;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,.close:focus 
+		{
+            color: red;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+		
+		input
+		{
+			width: calc(100% - 20px);
+			padding: 10px;
+			margin-bottom: 10px;
+			border: none;
+			border-radius: 5px;
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+		}
+		.forgot-label
+		{
+			display: block;
+			margin-bottom: 5px;
+			color:Black;
+			font-size:19;
+		}
+		.Verify
+		{
+			width: 50%;
+			padding: 10px;
+			border: none;
+			border-radius:40px;
+			background:rgb(46, 18, 174);
+			color: white;
+			font-size: 16px;
+			cursor: pointer;
+			margin-top: 10px;
+			transition:0.5s;
+			border-radius:15px;
+		}
+		
+		.Verify:hover 
+		{
+			box-shadow: 0 0 10px rgb(0,0,0);
+			background:green;
+			width:100%;
+			transition:0.5s;
+		}
+	
+	</style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Admin Login</h2>
+        <form action="login.php" method="post">
+            <label for="username">username:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit" id="b1">Login</button>
+			
+        </form>
+		<button id="openModalBtn" onClick="forgot()">Forgot Password?</button>
+    </div>
+
+	<div id="myModal" class="modal">
+	<div class="modal-content1">
+		<div class="modal-content">
+			<span class="close">&times;</span>
+			<form action="forgot-pass.php" method="POST">
+				<label class="forgot-label" for="username">Username:</label>
+				<input type="text" id="username" name="username" required>
+				
+				<center><input type="submit" class="Verify"  value="Verify"></center>
+				Enter Your Username For Update password
+			</form>
+		</div>
+	</div>
+	</div>
+	<script>
+        var modal = document.getElementById("myModal");
+		
+		var btn = document.getElementById("openModalBtn");
+		
+		var span = document.getElementsByClassName("close")[0];
+
+		btn.onclick = function() 
+		{
+			modal.style.display = "block";
+		}
+
+		span.onclick = function() 
+		{
+			modal.style.display = "none";
+		}
+
+    
+	</script>
+</body>
+</html>
